@@ -1,0 +1,86 @@
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build documentation artifact
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Stage documentation site
+        run: |
+          mkdir -p _site
+          cp README.md AGENTS.md ATLAS.md _site/
+          cp -R overlays profiles rapport templates _site/
+          cat > _site/index.html <<'HTML'
+          <!doctype html>
+          <html lang="en">
+          <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>ATLAS</title>
+            <meta name="description" content="Reusable ATLAS operating instructions and templates.">
+          </head>
+          <body>
+            <main>
+              <h1>ATLAS</h1>
+              <p>Reusable operating instructions and templates for technical recovery, archive work, project planning, and calm execution.</p>
+
+              <h2>Core</h2>
+              <ul>
+                <li><a href="README.md">README</a></li>
+                <li><a href="AGENTS.md">Repository instructions</a></li>
+                <li><a href="ATLAS.md">Core operating layer</a></li>
+                <li><a href="rapport/AGENTS.md">Rapport layer</a></li>
+              </ul>
+
+              <h2>Reusable Material</h2>
+              <ul>
+                <li><a href="overlays/forgotten-industries.md">Forgotten Industries overlay</a></li>
+                <li><a href="profiles/matthew.md">Matthew profile</a></li>
+                <li><a href="templates/repo-AGENTS.md">Repository AGENTS template</a></li>
+                <li><a href="templates/project-overlay.md">Project overlay template</a></li>
+              </ul>
+            </main>
+          </body>
+          </html>
+          HTML
+          touch _site/.nojekyll
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
