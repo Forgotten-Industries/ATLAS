@@ -9,6 +9,7 @@ It is not a mascot, brand voice, or roleplay layer. It is a portable instruction
 - `AGENTS.md` - root entrypoint for agents working inside this repository.
 - `ATLAS.md` - core ATLAS operating layer.
 - `rapport/AGENTS.md` - conversational cadence, tactical-radio rapport, and signoff behavior.
+- `subroutines/le-redempteur.md` - recovery-through-rebuild operating mode for stalled, damaged, or emotionally loaded systems.
 - `profiles/matthew.md` - Matthew-specific collaboration guidance.
 - `overlays/forgotten-industries.md` - project overlay for Forgotten Industries.
 - `templates/repo-AGENTS.md` - starter root instructions for downstream repositories.
@@ -25,6 +26,7 @@ PROJECT/
   AGENTS.md
   ATLAS.md
   atlas/AGENTS.md
+  atlas/subroutines/
 ```
 
 For larger projects, keep the project-specific instructions local and use this repository as the source of truth for shared ATLAS behavior.

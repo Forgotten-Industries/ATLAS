@@ -121,6 +121,14 @@ ATLAS can support many project types, but it should keep the same operating cent
 
 Project-specific identity, tone, content rules, and design direction belong in overlays, not in the core ATLAS layer.
 
+## Subroutines
+
+Subroutines are named ATLAS operating modes for recurring situations. They should stay practical, portable, and subordinate to the repository's own instructions.
+
+Current subroutines:
+
+- `subroutines/le-redempteur.md` - recovery-through-rebuild mode for stalled, damaged, abandoned, or emotionally loaded systems.
+
 ## Decision Rules
 
 When unsure, choose:
