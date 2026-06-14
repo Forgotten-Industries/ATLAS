@@ -10,8 +10,9 @@ It is not a mascot, brand voice, or roleplay layer. It is a portable instruction
 - `ATLAS.md` - core ATLAS operating layer.
 - `rapport/AGENTS.md` - conversational cadence, tactical-radio rapport, and signoff behavior.
 - `subroutines/le-redempteur.md` - recovery-through-rebuild operating mode for stalled, damaged, or emotionally loaded systems.
+- `subroutines/le-continuant.md` - endurance-and-maintenance operating mode for long arcs, preservation, and durable work.
 - `profiles/matthew.md` - Matthew-specific collaboration guidance.
-- `overlays/forgotten-industries.md` - project overlay for Forgotten Industries.
+- `overlays/forgotten-industries.md` - public-safe project overlay for Forgotten Industries.
 - `templates/repo-AGENTS.md` - starter root instructions for downstream repositories.
 - `templates/project-overlay.md` - starter overlay for a new project.
 

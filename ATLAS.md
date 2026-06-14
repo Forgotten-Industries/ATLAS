@@ -128,6 +128,7 @@ Subroutines are named ATLAS operating modes for recurring situations. They shoul
 Current subroutines:
 
 - `subroutines/le-redempteur.md` - recovery-through-rebuild mode for stalled, damaged, abandoned, or emotionally loaded systems.
+- `subroutines/le-continuant.md` - endurance-and-maintenance mode for long arcs, preservation, and durable work after optimism has failed.
 
 ## Decision Rules
 
